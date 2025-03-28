@@ -31,6 +31,20 @@
         from { opacity: 0; transform: translateY(20px); }
         to { opacity: 1; transform: translateY(0); }
       }
+      .menu-transition {
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      }
+      .menu-enter {
+        transform: translateY(-10px);
+        opacity: 0;
+      }
+      .menu-enter-active {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
     </style>
   </head>
   <body class="bg-gradient-to-br from-teal-50 to-cyan-50">
@@ -50,85 +64,266 @@
 
           <!-- 導航選單 (電腦版) -->
           <ul class="hidden md:flex space-x-8">
-            <li><a href="#" class="text-gray-700 hover:text-teal-600 hover:-translate-y-0.5 transition-all duration-300 inline-block">首頁</a></li>
-            <li><a href="#" class="text-gray-700 hover:text-teal-600 hover:-translate-y-0.5 transition-all duration-300 inline-block">關於我們</a></li>
-            <li><a href="#" class="text-gray-700 hover:text-teal-600 hover:-translate-y-0.5 transition-all duration-300 inline-block">服務項目</a></li>
-            <li><a href="#" class="text-gray-700 hover:text-teal-600 hover:-translate-y-0.5 transition-all duration-300 inline-block">聯絡資訊</a></li>
+            <li><a href="#home" class="text-gray-700 hover:text-teal-600 hover:-translate-y-0.5 transition-all duration-300 inline-block">首頁</a></li>
+            <li><a href="#features" class="text-gray-700 hover:text-teal-600 hover:-translate-y-0.5 transition-all duration-300 inline-block">特色介紹</a></li>
+            <li><a href="#courses" class="text-gray-700 hover:text-teal-600 hover:-translate-y-0.5 transition-all duration-300 inline-block">課程</a></li>
+            <li><a href="#testimonials" class="text-gray-700 hover:text-teal-600 hover:-translate-y-0.5 transition-all duration-300 inline-block">學員心得</a></li>
+            <li><a href="#register" class="text-gray-700 hover:text-teal-600 hover:-translate-y-0.5 transition-all duration-300 inline-block">註冊</a></li>
           </ul>
         </div>
 
         <!-- 手機版選單 -->
-        <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-sm shadow-lg transition-all duration-300 ease-in-out">
+        <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-sm shadow-lg transform menu-transition">
           <ul class="py-3 space-y-3">
-            <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-md transition-colors duration-300">首頁</a></li>
-            <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-md transition-colors duration-300">關於我們</a></li>
-            <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-md transition-colors duration-300">服務項目</a></li>
-            <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-md transition-colors duration-300">聯絡資訊</a></li>
+            <li><a href="#home" class="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-md transition-colors duration-300">首頁</a></li>
+            <li><a href="#features" class="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-md transition-colors duration-300">特色介紹</a></li>
+            <li><a href="#courses" class="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-md transition-colors duration-300">課程</a></li>
+            <li><a href="#testimonials" class="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-md transition-colors duration-300">學員心得</a></li>
+            <li><a href="#register" class="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 rounded-md transition-colors duration-300">註冊</a></li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <!-- 其他內容保持不變 -->
-    [保持原有內容不變]
+    <!-- 為固定導航列增加間距 -->
+    <div class="h-16"></div>
 
+    <!-- 首頁橫幅 -->
+    <header id="home" class="bg-gradient-to-r from-cyan-500 to-teal-600 text-white py-20 relative overflow-hidden">
+      <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.1\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+      <div class="max-w-4xl mx-auto px-6 text-center relative">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-float">探索 Tailwind CSS 的魅力</h1>
+        <p class="text-xl md:text-2xl mb-8 opacity-90">透過實作學習現代化的 CSS 框架</p>
+        <div class="flex gap-4 justify-center">
+          <button class="bg-white text-teal-600 px-8 py-3 rounded-full font-semibold hover:bg-teal-50 transition-all duration-300 hover:scale-105 pulse-effect">
+            開始學習
+          </button>
+          <button class="bg-transparent border-2 border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-teal-600 transition-all duration-300 hover:scale-105">
+            觀看教學
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- 主要內容區 -->
+    <main>
+      <!-- 特色介紹 -->
+      <section id="features" class="py-16">
+        <div class="max-w-2xl mx-auto px-4">
+          <div class="text-center mb-12">
+            <span class="text-teal-600 font-medium mb-2 block hover-float">我們的優勢</span>
+            <h2 class="text-4xl font-bold text-teal-800 hover:scale-105 transition-transform duration-300">為什麼選擇我們？</h2>
+            <div class="w-24 h-1 bg-teal-600 mx-auto mt-4 rounded-full"></div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="border rounded-lg shadow-md bg-white p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+              <img class="w-full h-32 object-cover mb-4 rounded-lg group-hover:scale-105 transition-transform duration-300" src="https://placehold.jp/150x150.png" alt="圖示 1" />
+              <h3 class="text-lg font-semibold mb-3 text-teal-700 border-b-2 border-teal-200 pb-2 group-hover:border-teal-400 transition-colors duration-300">快速開發</h3>
+              <p class="text-gray-600">使用 Utility-First 的方法，加速開發流程</p>
+            </div>
+            <div class="border rounded-lg shadow-md bg-white p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+              <img class="w-full h-32 object-cover mb-4 rounded-lg group-hover:scale-105 transition-transform duration-300" src="https://placehold.jp/150x150.png" alt="圖示 2" />
+              <h3 class="text-lg font-semibold mb-3 text-teal-700 border-b-2 border-teal-200 pb-2 group-hover:border-teal-400 transition-colors duration-300">響應式設計</h3>
+              <p class="text-gray-600">輕鬆打造適配各種螢幕尺寸的網站</p>
+            </div>
+            <div class="border rounded-lg shadow-md bg-white p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+              <img class="w-full h-32 object-cover mb-4 rounded-lg group-hover:scale-105 transition-transform duration-300" src="https://placehold.jp/150x150.png" alt="圖示 3" />
+              <h3 class="text-lg font-semibold mb-3 text-teal-700 border-b-2 border-teal-200 pb-2 group-hover:border-teal-400 transition-colors duration-300">客製化設計</h3>
+              <p class="text-gray-600">依據需求打造獨特的使用者介面</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 產品展示 -->
+      <section id="courses" class="py-16 bg-gradient-to-br from-gray-50 to-teal-50">
+        <div class="max-w-6xl mx-auto px-4">
+          <h2 class="text-3xl font-bold text-center mb-12 text-teal-800 hover:scale-105 transition-transform duration-300">熱門課程</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+              <div class="relative overflow-hidden">
+                <img src="https://placehold.jp/300x200.png" alt="課程 1" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-2 text-teal-700">HTML 基礎教學</h3>
+                <p class="text-gray-600 mb-4">學習網頁結構的基本元素</p>
+                <p class="text-sm text-gray-500 mb-4">課程時長：2 小時</p>
+                <button class="w-full bg-teal-600 text-white py-2 rounded-lg hover:bg-teal-700 transition-all duration-300 transform hover:translate-y-[-2px] active:translate-y-[1px]">
+                  立即報名
+                </button>
+              </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+              <div class="relative overflow-hidden">
+                <img src="https://placehold.jp/300x200.png" alt="課程 2" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-2 text-teal-700">CSS 樣式設計</h3>
+                <p class="text-gray-600 mb-4">掌握網頁設計的核心技巧</p>
+                <p class="text-sm text-gray-500 mb-4">課程時長：3 小時</p>
+                <button class="w-full bg-teal-600 text-white py-2 rounded-lg hover:bg-teal-700 transition-all duration-300 transform hover:translate-y-[-2px] active:translate-y-[1px]">
+                  立即報名
+                </button>
+              </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+              <div class="relative overflow-hidden">
+                <img src="https://placehold.jp/300x200.png" alt="課程 3" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-2 text-teal-700">JavaScript 互動程式</h3>
+                <p class="text-gray-600 mb-4">為網頁添加豐富的互動效果</p>
+                <p class="text-sm text-gray-500 mb-4">課程時長：4 小時</p>
+                <button class="w-full bg-teal-600 text-white py-2 rounded-lg hover:bg-teal-700 transition-all duration-300 transform hover:translate-y-[-2px] active:translate-y-[1px]">
+                  立即報名
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 用戶見證 -->
+      <section id="testimonials" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+          <h2 class="text-3xl font-bold text-center mb-12 text-teal-800 hover:scale-105 transition-transform duration-300">學員心得</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-teal-50 p-6 rounded-lg hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
+              <div class="flex flex-col items-center mb-4 relative">
+                <div class="absolute -top-2 -left-2 text-4xl text-teal-200 opacity-50">"</div>
+                <img src="https://placehold.jp/100x100.png" alt="用戶頭像 1" class="w-20 h-20 rounded-full mb-3 border-4 border-white shadow-lg hover:scale-110 transition-transform duration-300" />
+                <p class="text-gray-600 italic text-center mb-4 relative z-10">「透過這個課程，我學會了如何有效率地開發網站。」</p>
+                <p class="font-semibold text-teal-600">- 王小明</p>
+              </div>
+            </div>
+            <div class="bg-cyan-50 p-6 rounded-lg hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
+              <div class="flex flex-col items-center mb-4 relative">
+                <div class="absolute -top-2 -left-2 text-4xl text-cyan-200 opacity-50">"</div>
+                <img src="https://placehold.jp/100x100.png" alt="用戶頭像 2" class="w-20 h-20 rounded-full mb-3 border-4 border-white shadow-lg hover:scale-110 transition-transform duration-300" />
+                <p class="text-gray-600 italic text-center mb-4 relative z-10">「課程內容非常實用，讓我能夠快速上手。」</p>
+                <p class="font-semibold text-cyan-600">- 李小華</p>
+              </div>
+            </div>
+            <div class="bg-teal-50 p-6 rounded-lg hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
+              <div class="flex flex-col items-center mb-4 relative">
+                <div class="absolute -top-2 -left-2 text-4xl text-teal-200 opacity-50">"</div>
+                <img src="https://placehold.jp/100x100.png" alt="用戶頭像 3" class="w-20 h-20 rounded-full mb-3 border-4 border-white shadow-lg hover:scale-110 transition-transform duration-300" />
+                <p class="text-gray-600 italic text-center mb-4 relative z-10">「老師的教學方式清晰易懂，收穫良多。」</p>
+                <p class="font-semibold text-teal-600">- 張小芳</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 註冊表單 -->
+      <section id="register" class="py-16 bg-gradient-to-br from-gray-50 to-teal-50">
+        <div class="max-w-2xl mx-auto px-4">
+          <h2 class="text-3xl font-bold text-center mb-8 text-teal-800 hover:scale-105 transition-transform duration-300">立即註冊</h2>
+          <form class="bg-white shadow-lg rounded-lg p-8 transform transition-all duration-300 hover:shadow-xl">
+            <div class="space-y-6">
+              <div class="group">
+                <label for="name" class="block text-gray-700 font-medium mb-2 group-hover:text-teal-600 transition-colors duration-200">姓名</label>
+                <input type="text" id="name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200 hover:border-teal-300"/>
+              </div>
+              <div class="group">
+                <label for="email" class="block text-gray-700 font-medium mb-2 group-hover:text-teal-600 transition-colors duration-200">電子郵件</label>
+                <input type="email" id="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200 hover:border-teal-300"/>
+              </div>
+              <div class="group">
+                <label for="phone" class="block text-gray-700 font-medium mb-2 group-hover:text-teal-600 transition-colors duration-200">電話</label>
+                <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200 hover:border-teal-300"/>
+              </div>
+              <div class="group">
+                <label for="course" class="block text-gray-700 font-medium mb-2 group-hover:text-teal-600 transition-colors duration-200">選擇課程</label>
+                <select id="course" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200 hover:border-teal-300 bg-white cursor-pointer">
+                  <option value="">請選擇課程</option>
+                  <option value="html">HTML 基礎教學</option>
+                  <option value="css">CSS 樣式設計</option>
+                  <option value="js">JavaScript 互動程式</option>
+                </select>
+              </div>
+              <div class="group">
+                <label for="message" class="block text-gray-700 font-medium mb-2 group-hover:text-teal-600 transition-colors duration-200">留言</label>
+                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200 hover:border-teal-300 resize-none"></textarea>
+              </div>
+              <button type="submit" class="w-full bg-teal-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 transform hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 pulse-effect">
+                送出表單
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- 頁尾資訊 -->
     <script>
-      // 漢堡選單功能
-      const menuButton = document.getElementById('menuButton');
-      const mobileMenu = document.getElementById('mobileMenu');
-      const menuOpenIcon = menuButton.querySelector('.menu-open');
-      const menuCloseIcon = menuButton.querySelector('.menu-close');
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuButton = document.getElementById("menuButton");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const menuOpenIcon = menuButton.querySelector(".menu-open");
+        const menuCloseIcon = menuButton.querySelector(".menu-close");
 
-      let isMenuOpen = false;
-
-      function toggleMenu() {
-        isMenuOpen = !isMenuOpen;
-        mobileMenu.classList.toggle('hidden');
-        menuOpenIcon.classList.toggle('hidden');
-        menuCloseIcon.classList.toggle('hidden');
-        menuButton.setAttribute('aria-expanded', isMenuOpen);
-      }
-
-      menuButton.addEventListener('click', function(e) {
-        e.stopPropagation();
-        toggleMenu();
-      });
-
-      // 點擊其他地方關閉選單
-      document.addEventListener('click', function(e) {
-        if (isMenuOpen && !mobileMenu.contains(e.target) && !menuButton.contains(e.target)) {
-          toggleMenu();
+        // 更新按鈕的 aria-expanded 狀態
+        function updateAriaExpanded(isOpen) {
+          menuButton.setAttribute("aria-expanded", isOpen);
         }
-      });
 
-      // 防止選單內的點擊事件導致選單關閉
-      mobileMenu.addEventListener('click', function(e) {
-        e.stopPropagation();
-      });
+        menuButton.addEventListener("click", function () {
+          const isOpen = mobileMenu.classList.contains("hidden");
 
-      // 監聽視窗大小變化
-      window.addEventListener('resize', function() {
-        if (window.innerWidth >= 768 && isMenuOpen) {
-          toggleMenu();
-        }
-      });
+          // 切換選單顯示狀態
+          mobileMenu.classList.toggle("hidden");
 
-      // 滾動效果
-      let lastScroll = 0;
-      window.addEventListener('scroll', () => {
-        const nav = document.querySelector('nav');
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll <= 0) {
-          nav.classList.remove('py-2');
-        }
-        if (currentScroll > lastScroll && currentScroll > 50) {
-          nav.classList.add('py-2');
-        }
-        lastScroll = currentScroll;
-      });
+          // 切換 SVG 圖示
+          menuOpenIcon.classList.toggle("hidden", !isOpen);
+          menuCloseIcon.classList.toggle("hidden", isOpen);
 
-      // 其他 JavaScript 功能保持不變
+          // 更新按鈕狀態
+          updateAriaExpanded(!isOpen);
+        });
+      });
     </script>
-  </body>
-</html>
+    <footer class="bg-gradient-to-br from-teal-900 to-cyan-900 text-gray-300 py-12">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+          <div class="group">
+            <h3 class="text-white text-lg font-semibold mb-4 group-hover:text-teal-400 transition-colors duration-300">關於我們</h3>
+            <div class="space-y-2">
+              <p class="text-gray-400 hover:text-gray-200 transition-colors duration-200">提供優質的網頁開發教學</p>
+              <p class="text-gray-400 flex items-center hover:text-gray-200 transition-colors duration-200">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                台北市某某區某某路123號
+              </p>
+              <p class="text-gray-400 flex items-center hover:text-gray-200 transition-colors duration-200">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+                (02) 1234-5678
+              </p>
+              <p class="text-gray-400 flex items-center hover:text-gray-200 transition-colors duration-200">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                info@example.com
+              </p>
+            </div>
+          </div>
+          <div class="group">
+            <h3 class="text-white text-lg font-semibold mb-4 group-hover:text-teal-400 transition-colors duration-300">快速連結</h3>
+            <ul class="space-y-2">
+              <li><a href="#features" class="text-gray-400 hover:text-white transition-all duration-300 hover:pl-2 inline-block">特色介紹</a></li>
+              <li><a href="#courses" class="text-gray-400 hover:text-white transition-all duration-300 hover:pl-2 inline-block">課程內容</a></li>
+              <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-all duration-300 hover:pl-2 inline-block">學員心得</a></li>
+              <li><a href="#register" class="text-gray-400 hover:text-white transition-all duration-300 hover:pl-2 inline-block">立即註冊</a></li>
+            </ul>
+          </div>
+          <div class="group">
+            <h3 class="text-white text-lg font-semibold mb-4 group-hover:text-teal-400 transition-colors duration-300">追蹤我們</h3>
+            <ulclass="sy-2">
